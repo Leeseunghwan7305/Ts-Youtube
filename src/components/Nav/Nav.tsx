@@ -1,4 +1,4 @@
-import React from "react";
+import React, { SetStateAction } from "react";
 import styles from "./Nav.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -8,12 +8,19 @@ import { faVideo } from "@fortawesome/free-solid-svg-icons";
 import { faShapes } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import youtube_logo from "./youtube_logo.png";
-
-const Nav = () => {
+type Props = {
+  Toggle: () => void;
+  setTapToggle: any;
+};
+const Nav = ({ Toggle, setTapToggle }: Props) => {
   return (
     <header className={styles.head}>
       <div>
-        <FontAwesomeIcon className={styles.icon} icon={faBars} />
+        <FontAwesomeIcon
+          onClick={Toggle}
+          className={styles.icon}
+          icon={faBars}
+        />
         <img src={youtube_logo} alt="로고" className={styles.logo} />
       </div>
       <div className={styles.centerTap}>

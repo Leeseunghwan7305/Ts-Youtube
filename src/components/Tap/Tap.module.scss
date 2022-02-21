@@ -1,7 +1,34 @@
+.block {
+  display: none;
+}
 .tap {
+  ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    & :hover {
+      background-color: gray;
+    }
+  }
   color: black;
-  background-color: white;
   border: 1px solid black;
   width: 200px;
   height: 100vh;
+  position: fixed;
+  li {
+    padding: 10px 0;
+    text-align: center;
+    list-style: none;
+    border: 1px solid black;
+    text-decoration: none;
+  }
+  .link {
+    justify-content: center;
+    display: flex;
+    height: 50px;
+    padding: 0 24px;
+    color: black;
+    font-size: 15px;
+    align-items: center;
+  }
 }
