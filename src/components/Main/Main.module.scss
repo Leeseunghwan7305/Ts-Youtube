@@ -1,6 +1,28 @@
 .main {
   margin-left: 200px;
+  display: grid;
+  width: 100%;
+  row-gap: 40px;
+  column-gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
   .img {
-    width: 200px;
+    transition: 0.2s all;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .main {
+    margin: 0;
+  }
+  .box {
+    width: 100%;
+    .img {
+      margin: 0 15px;
+      padding: 0;
+      width: 450px;
+      height: 350px;
+    }
   }
 }

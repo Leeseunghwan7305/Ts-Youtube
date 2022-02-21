@@ -1,4 +1,4 @@
-import React, { SetStateAction } from "react";
+import React, { SetStateAction, useRef } from "react";
 import styles from "./Nav.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -11,8 +11,10 @@ import youtube_logo from "./youtube_logo.png";
 type Props = {
   Toggle: () => void;
   setTapToggle: any;
+  setInput: any;
 };
-const Nav = ({ Toggle, setTapToggle }: Props) => {
+const Nav = ({ Toggle, setTapToggle, setInput }: Props) => {
+  let inputRef = useRef<HTMLInputElement | any>();
   return (
     <header className={styles.head}>
       <div>
@@ -27,8 +29,12 @@ const Nav = ({ Toggle, setTapToggle }: Props) => {
         <input
           className={styles.input}
           placeholder="여기에 입력을 해주세요"
+          ref={inputRef}
         ></input>
         <FontAwesomeIcon
+          onClick={() => {
+            setInput(inputRef.current.value);
+          }}
           className={`${styles.icon} ${styles.icons}`}
           icon={faMagnifyingGlass}
         />
