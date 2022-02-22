@@ -15,6 +15,14 @@ type Props = {
 };
 const Nav = ({ Toggle, setTapToggle, setInput }: Props) => {
   let inputRef = useRef<HTMLInputElement | any>();
+  function press(e: React.KeyboardEvent<HTMLDivElement>) {
+    if (inputRef.current.value != false) {
+      setInput(inputRef.current.value);
+      console.log(inputRef.current.value);
+      inputRef.current.value = "";
+      inputRef.current.focus();
+    }
+  }
   return (
     <header className={styles.head}>
       <div>
@@ -30,10 +38,16 @@ const Nav = ({ Toggle, setTapToggle, setInput }: Props) => {
           className={styles.input}
           placeholder="여기에 입력을 해주세요"
           ref={inputRef}
+          onKeyPress={(e: React.KeyboardEvent<HTMLDivElement>) => press(e)}
         ></input>
         <FontAwesomeIcon
           onClick={() => {
-            setInput(inputRef.current.value);
+            if (inputRef.current.value != false) {
+              setInput(inputRef.current.value);
+              console.log(inputRef.current.value);
+              inputRef.current.value = "";
+              inputRef.current.focus();
+            }
           }}
           className={`${styles.icon} ${styles.icons}`}
           icon={faMagnifyingGlass}

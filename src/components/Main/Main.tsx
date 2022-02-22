@@ -3,10 +3,14 @@ import axios from "axios";
 import { isTemplateSpan } from "typescript";
 import styles from "./Main.module.scss";
 import { inputContext } from "../Layout/Layout";
-const Main = () => {
+import { useNavigate } from "react-router";
+import Video from "../Video/Video";
+import { Route, Routes } from "react-router";
+const Main = ({ setClickData }: any) => {
   type Data = {};
   let [data, setData] = useState<any[]>([]);
   let input = useContext(inputContext);
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get(
@@ -26,7 +30,8 @@ const Main = () => {
         `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${input}&key=${process.env.REACT_APP_Y0UTUBE_API_KEY}`
       )
       .then((result) => {
-        console.log(result);
+        let items = result.data.items;
+        setData(items);
       })
       .catch((error) => {
         console.log(error);
@@ -37,7 +42,13 @@ const Main = () => {
       {data &&
         data.map((result, index) => {
           return (
-            <div className={styles.box}>
+            <div
+              onClick={() => {
+                setClickData(result);
+                navigate("/Video");
+              }}
+              className={styles.box}
+            >
               <img
                 onClick={() => {
                   console.log("ee");

@@ -1,4 +1,4 @@
-import React, { Children, useState, useContext } from "react";
+import React, { Children, useState, useContext, createContext } from "react";
 import styles from "./Layout.module.scss";
 import Nav from "../Nav/Nav";
 import Tap from "../Tap/Tap";
@@ -10,6 +10,7 @@ export let inputContext = React.createContext<string | null>("");
 const Layout = ({ children }: Props) => {
   let [tapToggle, setTapToggle] = useState<boolean>(true);
   let [input, setInput] = useState<string | null>("");
+  let clickData = {};
   function Toggle(): void {
     setTapToggle(!tapToggle);
   }

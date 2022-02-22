@@ -1,14 +1,22 @@
 .main {
+  font-family: sans-serif;
   margin-left: 200px;
   display: grid;
   width: 100%;
   row-gap: 40px;
   column-gap: 16px;
   grid-template-columns: repeat(auto-fit, minmax(300px, auto));
-  .img {
-    transition: 0.2s all;
+  .box {
+    border: 1px solid black;
+    transition: 0.5s all;
+    .img {
+      width: 100%;
+
+      transition: 0.2s all;
+    }
     &:hover {
-      transform: scale(1.05);
+      transform: translateY(-10px);
+      box-shadow: 5px 5px 5px 5px gray;
     }
   }
 }
@@ -17,11 +25,11 @@
     margin: 0;
   }
   .box {
-    width: 100%;
+    width: 85%;
+    margin: 0 auto;
     .img {
-      margin: 0 15px;
       padding: 0;
-      width: 450px;
+      width: 100px;
       height: 350px;
     }
   }
