@@ -6,9 +6,12 @@ import { inputContext } from "../Layout/Layout";
 import { useNavigate } from "react-router";
 import Video from "../Video/Video";
 import { Route, Routes } from "react-router";
-const Main = ({ setClickData }: any) => {
-  type Data = {};
-  let [data, setData] = useState<any[]>([]);
+type Props = {
+  setClickData: any;
+  data: any[];
+  setData: any;
+};
+const Main = ({ setClickData, data, setData }: Props) => {
   let input = useContext(inputContext);
   const navigate = useNavigate();
   useEffect(() => {

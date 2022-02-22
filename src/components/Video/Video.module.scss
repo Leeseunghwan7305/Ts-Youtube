@@ -1,3 +1,26 @@
 .video {
   margin-left: 200px;
+  display: flex;
+  font-family: sans-serif;
+  iframe {
+    cursor: pointer;
+  }
+  pre {
+    margin-bottom: 50px;
+  }
+}
+.sideImg {
+  display: flex;
+  cursor: pointer;
+  transition: 0.2s all;
+  img {
+    margin-right: 5px;
+  }
+  p:first-child {
+    font-weight: 600;
+  }
+  margin: 5px 0;
+  &:hover {
+    transform: translateY(-5px);
+  }
 }

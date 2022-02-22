@@ -8,18 +8,25 @@ import Explore from "./components/Explore/Explore";
 import Video from "./components/Video/Video";
 function App() {
   let [clickData, setClickData] = useState<any[]>([]);
+  let [data, setData] = useState<any[]>([]);
   return (
     <div className={styles.app}>
       <Layout>
         <Routes>
           <Route
             path="/"
-            element={<Main setClickData={setClickData}></Main>}
+            element={
+              <Main
+                setClickData={setClickData}
+                data={data}
+                setData={setData}
+              ></Main>
+            }
           ></Route>
           <Route path="/explore" element={<Explore></Explore>}></Route>
           <Route
             path="/Video"
-            element={<Video clickData={clickData}></Video>}
+            element={<Video clickData={clickData} data={data}></Video>}
           ></Route>
         </Routes>
       </Layout>
