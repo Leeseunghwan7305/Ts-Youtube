@@ -6,6 +6,7 @@ import { inputContext } from "../Layout/Layout";
 import { useNavigate } from "react-router";
 import Video from "../Video/Video";
 import { Route, Routes } from "react-router";
+import MainList from "./MainList";
 type Props = {
   setClickData: any;
   data: any[];
@@ -14,6 +15,7 @@ type Props = {
 const Main = ({ setClickData, data, setData }: Props) => {
   let input = useContext(inputContext);
   const navigate = useNavigate();
+
   useEffect(() => {
     axios
       .get(
@@ -34,6 +36,7 @@ const Main = ({ setClickData, data, setData }: Props) => {
       )
       .then((result) => {
         let items = result.data.items;
+        items.id as string;
         setData(items);
       })
       .catch((error) => {
@@ -45,24 +48,13 @@ const Main = ({ setClickData, data, setData }: Props) => {
       {data &&
         data.map((result, index) => {
           return (
-            <div
-              onClick={() => {
-                setClickData(result);
-                navigate("/Video");
-              }}
-              className={styles.box}
-            >
-              <img
-                onClick={() => {
-                  console.log("ee");
-                }}
-                key={index}
-                className={styles.img}
-                src={result.snippet.thumbnails.medium.url}
-              ></img>
-              <p>{result.snippet.title}</p>
-              <p>조회수: 1000회</p>
-            </div>
+            <MainList
+              id={result.id}
+              thumbnail={result.snippet.thumbnails.medium.url}
+              title={result.snippet.title}
+              setClickData={setClickData}
+              result={result}
+            ></MainList>
           );
         })}
     </div>

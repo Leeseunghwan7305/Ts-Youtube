@@ -26,7 +26,13 @@ function App() {
           <Route path="/explore" element={<Explore></Explore>}></Route>
           <Route
             path="/Video"
-            element={<Video clickData={clickData} data={data}></Video>}
+            element={
+              <Video
+                setClickData={setClickData}
+                clickData={clickData}
+                data={data}
+              ></Video>
+            }
           ></Route>
         </Routes>
       </Layout>

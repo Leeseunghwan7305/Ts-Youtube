@@ -6,32 +6,9 @@
   row-gap: 40px;
   column-gap: 16px;
   grid-template-columns: repeat(auto-fit, minmax(300px, auto));
-  .box {
-    border: 1px solid black;
-    transition: 0.5s all;
-    cursor: pointer;
-    .img {
-      width: 100%;
-
-      transition: 0.2s all;
-    }
-    &:hover {
-      transform: translateY(-10px);
-      box-shadow: 5px 5px 5px 5px gray;
-    }
-  }
 }
 @media screen and (max-width: 600px) {
   .main {
     margin: 0;
-  }
-  .box {
-    width: 85%;
-    margin: 0 auto;
-    .img {
-      padding: 0;
-      width: 100px;
-      height: 350px;
-    }
   }
 }

@@ -3,9 +3,9 @@ import styles from "./Video.module.scss";
 type Props = {
   clickData: any;
   data: any[];
+  setClickData: any;
 };
-const Video = ({ clickData, data }: Props) => {
-  console.log(clickData.snippet.thumbnails.medium.url);
+const Video = ({ clickData, data, setClickData }: Props) => {
   return (
     <div className={styles.video}>
       <div>
@@ -22,9 +22,13 @@ const Video = ({ clickData, data }: Props) => {
       </div>
       <div className={styles.side}>
         {data.map((result) => {
-          console.log(result);
           return (
-            <div className={styles.sideImg}>
+            <div
+              onClick={() => {
+                setClickData(result);
+              }}
+              className={styles.sideImg}
+            >
               <img src={result.snippet.thumbnails.default.url}></img>
               <div>
                 <p>{result.snippet.title}</p>
