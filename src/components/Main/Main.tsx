@@ -11,13 +11,10 @@ type Props = {
   setClickData: any;
   data: any[];
   setData: any;
-  setSubData: any;
-  subData: any;
 };
-const Main = ({ setClickData, data, setData, setSubData, subData }: Props) => {
+const Main = ({ setClickData, data, setData }: Props) => {
   let input = useContext(inputContext);
   const navigate = useNavigate();
-
   useEffect(() => {
     axios
       .get(
@@ -56,9 +53,8 @@ const Main = ({ setClickData, data, setData, setSubData, subData }: Props) => {
               title={result.snippet.title}
               setClickData={setClickData}
               result={result}
-              setSubData={setSubData}
               channelId={result.snippet.channelId}
-              subData={subData}
+              publishedAt={result.snippet.publishedAt}
             ></MainList>
           );
         })}

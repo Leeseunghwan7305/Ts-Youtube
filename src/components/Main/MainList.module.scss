@@ -2,6 +2,7 @@
   border: 1px solid black;
   transition: 0.5s all;
   cursor: pointer;
+  box-shadow: 3px 3px 3px 3px gray;
   .img {
     width: 100%;
 
@@ -9,7 +10,16 @@
   }
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 5px 5px 5px 5px gray;
+  }
+
+  .bottomBox {
+    display: flex;
+    .channelImg {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      margin: 10px;
+    }
   }
 }
 

@@ -11,6 +11,7 @@ const Video = ({ clickData, data, setClickData }: Props) => {
       <div>
         <iframe
           width="100%"
+          title="youtube video player"
           src={`https://www.youtube.com/embed/${
             clickData.id.videoId ? clickData.id.videoId : clickData.id
           }`}
