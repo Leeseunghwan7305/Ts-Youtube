@@ -11,8 +11,10 @@ type Props = {
   setClickData: any;
   data: any[];
   setData: any;
+  setSubData: any;
+  subData: any;
 };
-const Main = ({ setClickData, data, setData }: Props) => {
+const Main = ({ setClickData, data, setData, setSubData, subData }: Props) => {
   let input = useContext(inputContext);
   const navigate = useNavigate();
 
@@ -49,11 +51,14 @@ const Main = ({ setClickData, data, setData }: Props) => {
         data.map((result, index) => {
           return (
             <MainList
-              id={result.id}
+              id={result.id.videoId ? result.id.videoId : result.id}
               thumbnail={result.snippet.thumbnails.medium.url}
               title={result.snippet.title}
               setClickData={setClickData}
               result={result}
+              setSubData={setSubData}
+              channelId={result.snippet.channelId}
+              subData={subData}
             ></MainList>
           );
         })}

@@ -9,6 +9,7 @@ import Video from "./components/Video/Video";
 function App() {
   let [clickData, setClickData] = useState<any[]>([]);
   let [data, setData] = useState<any[]>([]);
+  let [subData, setSubData] = useState([0, 0, 0]);
   return (
     <div className={styles.app}>
       <Layout>
@@ -20,6 +21,8 @@ function App() {
                 setClickData={setClickData}
                 data={data}
                 setData={setData}
+                setSubData={setSubData}
+                subData={subData}
               ></Main>
             }
           ></Route>
