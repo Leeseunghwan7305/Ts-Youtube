@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Video.module.scss";
 import VideoList from "./VideoList";
 type Props = {
@@ -8,16 +8,14 @@ type Props = {
   tapToggle: boolean;
 };
 const Video = ({ clickData, data, setClickData, tapToggle }: Props) => {
+  let [subClickData, SetSubClickData] = useState<any[]>([]);
   return (
     <div
       className={`${styles.video}  ${
         tapToggle ? styles.margin : styles.center
       }`}
     >
-      <div
-        className={`${styles.videoImg}  
-        `}
-      >
+      <div className={styles.videoImg}>
         <iframe
           width="100%"
           title="youtube video player"
@@ -29,6 +27,7 @@ const Video = ({ clickData, data, setClickData, tapToggle }: Props) => {
         ></iframe>
         <h2>{clickData ? clickData.snippet.title : null}</h2>
         <h3>{clickData ? clickData.snippet.channelTitle : null}</h3>
+        <span>조회수:{subClickData && subClickData[0]}회</span>
         <hr />
       </div>
       <div className={styles.side}>
@@ -42,6 +41,7 @@ const Video = ({ clickData, data, setClickData, tapToggle }: Props) => {
               result={result}
               channelId={result.snippet.channelId}
               publishedAt={result.snippet.publishedAt}
+              SetSubClickData={SetSubClickData}
             ></VideoList>
           );
         })}

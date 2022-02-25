@@ -14,6 +14,7 @@ type Props = {
 };
 const Main = ({ setClickData, data, setData }: Props) => {
   let input = useContext(inputContext);
+  let [subClickData, SetSubClickData] = useState<any[]>([]);
   const navigate = useNavigate();
   useEffect(() => {
     axios
@@ -56,6 +57,7 @@ const Main = ({ setClickData, data, setData }: Props) => {
                 result={result}
                 channelId={result.snippet.channelId}
                 publishedAt={result.snippet.publishedAt}
+                SetSubClickData={SetSubClickData}
               ></MainList>
             </div>
           );

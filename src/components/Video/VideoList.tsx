@@ -14,6 +14,7 @@ const VideoList = ({
   result,
   channelId,
   publishedAt,
+  SetSubClickData,
 }: any) => {
   let navigate = useNavigate();
   let [viewCount, setViewCount] = useState("");
@@ -45,6 +46,7 @@ const VideoList = ({
     <div
       onClick={() => {
         setClickData(result);
+        SetSubClickData([viewCount, channelThumbnail, channelTitle]);
         navigate("/Video");
       }}
       className={styles.box}
