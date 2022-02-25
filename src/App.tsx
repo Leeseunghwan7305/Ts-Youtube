@@ -7,11 +7,15 @@ import Main from "./components/Main/Main";
 import Explore from "./components/Explore/Explore";
 import Video from "./components/Video/Video";
 function App() {
-  let [clickData, setClickData] = useState<any[]>([]);
+  let [clickData, setClickData] = useState<any[] | undefined>([]);
   let [data, setData] = useState<any[]>([]);
+  let [tapToggle, setTapToggle] = useState<boolean>(true);
+  function Toggle(): void {
+    setTapToggle(!tapToggle);
+  }
   return (
     <div className={styles.app}>
-      <Layout>
+      <Layout tapToggle={tapToggle} setTapToggle={setTapToggle}>
         <Routes>
           <Route
             path="/"
@@ -31,6 +35,7 @@ function App() {
                 setClickData={setClickData}
                 clickData={clickData}
                 data={data}
+                tapToggle={tapToggle}
               ></Video>
             }
           ></Route>

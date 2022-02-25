@@ -18,7 +18,7 @@ const Nav = ({ Toggle, setTapToggle, setInput }: Props) => {
   const navigate = useNavigate();
   let inputRef = useRef<HTMLInputElement | any>();
   function press(e: React.KeyboardEvent<HTMLDivElement>) {
-    if (inputRef.current.value != false) {
+    if (inputRef.current.value != false && e.key == "Enter") {
       setInput(inputRef.current.value);
       console.log(inputRef.current.value);
       inputRef.current.value = "";

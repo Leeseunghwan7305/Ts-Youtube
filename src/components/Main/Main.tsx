@@ -47,15 +47,17 @@ const Main = ({ setClickData, data, setData }: Props) => {
       {data &&
         data.map((result, index) => {
           return (
-            <MainList
-              id={result.id.videoId ? result.id.videoId : result.id}
-              thumbnail={result.snippet.thumbnails.medium.url}
-              title={result.snippet.title}
-              setClickData={setClickData}
-              result={result}
-              channelId={result.snippet.channelId}
-              publishedAt={result.snippet.publishedAt}
-            ></MainList>
+            <div key={index}>
+              <MainList
+                id={result.id.videoId ? result.id.videoId : result.id}
+                thumbnail={result.snippet.thumbnails.medium.url}
+                title={result.snippet.title}
+                setClickData={setClickData}
+                result={result}
+                channelId={result.snippet.channelId}
+                publishedAt={result.snippet.publishedAt}
+              ></MainList>
+            </div>
           );
         })}
     </div>

@@ -1,14 +1,23 @@
 import React from "react";
 import styles from "./Video.module.scss";
+import VideoList from "./VideoList";
 type Props = {
-  clickData: any;
+  clickData: any | undefined;
   data: any[];
   setClickData: any;
+  tapToggle: boolean;
 };
-const Video = ({ clickData, data, setClickData }: Props) => {
+const Video = ({ clickData, data, setClickData, tapToggle }: Props) => {
   return (
-    <div className={styles.video}>
-      <div>
+    <div
+      className={`${styles.video}  ${
+        tapToggle ? styles.margin : styles.center
+      }`}
+    >
+      <div
+        className={`${styles.videoImg}  
+        `}
+      >
         <iframe
           width="100%"
           title="youtube video player"
@@ -16,28 +25,24 @@ const Video = ({ clickData, data, setClickData }: Props) => {
             clickData.id.videoId ? clickData.id.videoId : clickData.id
           }`}
           allowFullScreen
-          height="400px"
+          height="600px"
         ></iframe>
-        <h2>{clickData.snippet.title}</h2>
-        <h3>{clickData.snippet.channelTitle}</h3>
-        <pre>{clickData.snippet.description}</pre>
+        <h2>{clickData ? clickData.snippet.title : null}</h2>
+        <h3>{clickData ? clickData.snippet.channelTitle : null}</h3>
         <hr />
       </div>
       <div className={styles.side}>
         {data.map((result) => {
           return (
-            <div
-              onClick={() => {
-                setClickData(result);
-              }}
-              className={styles.sideImg}
-            >
-              <img src={result.snippet.thumbnails.default.url}></img>
-              <div>
-                <p>{result.snippet.title}</p>
-                <p>{result.snippet.channelTitle}</p>
-              </div>
-            </div>
+            <VideoList
+              id={result.id.videoId ? result.id.videoId : result.id}
+              thumbnail={result.snippet.thumbnails.medium.url}
+              title={result.snippet.title}
+              setClickData={setClickData}
+              result={result}
+              channelId={result.snippet.channelId}
+              publishedAt={result.snippet.publishedAt}
+            ></VideoList>
           );
         })}
       </div>

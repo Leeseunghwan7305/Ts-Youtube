@@ -5,16 +5,15 @@ import Tap from "../Tap/Tap";
 
 type Props = {
   children: JSX.Element;
+  tapToggle: boolean;
+  setTapToggle: any;
 };
 export let inputContext = React.createContext<string | null>("");
-const Layout = ({ children }: Props) => {
-  let [tapToggle, setTapToggle] = useState<boolean>(true);
+const Layout = ({ children, tapToggle, setTapToggle }: Props) => {
   let [input, setInput] = useState<string | null>("");
-  let clickData = {};
   function Toggle(): void {
     setTapToggle(!tapToggle);
   }
-
   return (
     <inputContext.Provider value={input}>
       <div>
