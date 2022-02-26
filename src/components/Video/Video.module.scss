@@ -16,6 +16,20 @@
   pre {
     margin-bottom: 50px;
   }
+  .introduce {
+    display: flex;
+    img {
+      margin: 20px;
+    }
+  }
+  .userComment {
+    display: flex;
+    margin: 20px;
+    img {
+      height: 100px;
+      width: 100px;
+    }
+  }
 }
 .sideImg {
   display: flex;
