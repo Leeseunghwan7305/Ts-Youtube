@@ -53,6 +53,45 @@ const Video = ({
         <div className={styles.introduce}>
           <img src={subClickData[1]}></img>
           <h1>{subClickData[2]}</h1>
+          <button
+            onClick={() => {
+              let arr = [...userComment];
+              let temp = 0;
+              console.log(
+                userComment[0].snippet.topLevelComment.snippet.likeCount
+              );
+              for (let i = 0; i < arr.length; i++) {
+                for (let j = i + 1; j < arr.length; j++) {
+                  if (
+                    arr[i].snippet.topLevelComment.snippet.likeCount <
+                    arr[j].snippet.topLevelComment.snippet.likeCount
+                  ) {
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                  }
+                }
+              }
+              setUserComment(arr);
+            }}
+          >
+            좋아요순
+          </button>
+          <button
+            onClick={() => {
+              axios
+                .get(
+                  `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=25&videoId=${
+                    clickData.id.videoId ? clickData.id.videoId : clickData.id
+                  }&key=${process.env.REACT_APP_Y0UTUBE_API_KEY}`
+                )
+                .then((result) => {
+                  setUserComment(() => result.data.items);
+                });
+            }}
+          >
+            원래대로
+          </button>
         </div>
         <hr />
         <div>
