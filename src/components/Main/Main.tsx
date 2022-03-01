@@ -11,10 +11,11 @@ type Props = {
   setClickData: any;
   data: any[];
   setData: any;
+  SetSubClickData: any;
 };
-const Main = ({ setClickData, data, setData }: Props) => {
+const Main = ({ setClickData, data, setData, SetSubClickData }: Props) => {
   let input = useContext(inputContext);
-  let [subClickData, SetSubClickData] = useState<any[]>([]);
+
   const navigate = useNavigate();
   useEffect(() => {
     axios

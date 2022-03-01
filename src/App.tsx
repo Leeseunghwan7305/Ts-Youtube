@@ -13,6 +13,8 @@ function App() {
   function Toggle(): void {
     setTapToggle(!tapToggle);
   }
+  let [subClickData, SetSubClickData] = useState<any[]>([]);
+
   return (
     <div className={styles.app}>
       <Layout tapToggle={tapToggle} setTapToggle={setTapToggle}>
@@ -24,6 +26,7 @@ function App() {
                 setClickData={setClickData}
                 data={data}
                 setData={setData}
+                SetSubClickData={SetSubClickData}
               ></Main>
             }
           ></Route>
@@ -36,6 +39,8 @@ function App() {
                 clickData={clickData}
                 data={data}
                 tapToggle={tapToggle}
+                SetSubClickData={SetSubClickData}
+                subClickData={subClickData}
               ></Video>
             }
           ></Route>

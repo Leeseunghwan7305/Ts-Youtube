@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Video.module.scss";
 import VideoList from "./VideoList";
 type Props = {
@@ -7,19 +7,30 @@ type Props = {
   data: any[];
   setClickData: any;
   tapToggle: boolean;
+  SetSubClickData: any;
+  subClickData: any;
 };
-const Video = ({ clickData, data, setClickData, tapToggle }: Props) => {
-  let [subClickData, SetSubClickData] = useState<any[]>([]);
+const Video = ({
+  clickData,
+  data,
+  setClickData,
+  tapToggle,
+  SetSubClickData,
+  subClickData,
+}: Props) => {
   let [userComment, setUserComment] = useState<any[]>([]);
-  axios
-    .get(
-      `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=25&videoId=${
-        clickData.id.videoId ? clickData.id.videoId : clickData.id
-      }&key=${process.env.REACT_APP_Y0UTUBE_API_KEY}`
-    )
-    .then((result) => {
-      setUserComment(() => result.data.items);
-    });
+  useEffect(() => {
+    axios
+      .get(
+        `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=25&videoId=${
+          clickData.id.videoId ? clickData.id.videoId : clickData.id
+        }&key=${process.env.REACT_APP_Y0UTUBE_API_KEY}`
+      )
+      .then((result) => {
+        console.log(result);
+        setUserComment(() => result.data.items);
+      });
+  }, [subClickData]);
   return (
     <div
       className={`${styles.video}  ${
@@ -51,6 +62,7 @@ const Video = ({ clickData, data, setClickData, tapToggle }: Props) => {
                 src={item.snippet.topLevelComment.snippet.authorProfileImageUrl}
               />
               <div>
+                <p>{item.snippet.topLevelComment.snippet.authorDisplayname}</p>
                 <p>{item.snippet.topLevelComment.snippet.textOriginal}</p>
                 <p>{item.snippet.topLevelComment.snippet.likeCount}</p>
               </div>
