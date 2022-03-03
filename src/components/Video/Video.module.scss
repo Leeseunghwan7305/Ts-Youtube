@@ -9,6 +9,28 @@
     span {
       margin: 15px;
     }
+    .introduce {
+      position: relative;
+      .sortBox {
+        position: absolute;
+        right: 15px;
+        bottom: 10px;
+        .lookBox {
+          padding: 15px 21px;
+          position: relative;
+        }
+        .hideButton {
+          button {
+            padding: 5px 13px;
+          }
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          width: 87px;
+          top: 53px;
+        }
+      }
+    }
   }
   iframe {
     cursor: pointer;

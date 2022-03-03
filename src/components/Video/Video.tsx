@@ -19,6 +19,7 @@ const Video = ({
   subClickData,
 }: Props) => {
   let [userComment, setUserComment] = useState<any[]>([]);
+  let [sortButton, setSortButton] = useState(false);
   useEffect(() => {
     axios
       .get(
@@ -31,6 +32,34 @@ const Video = ({
         setUserComment(() => result.data.items);
       });
   }, [subClickData]);
+  function sortBtn() {
+    let arr = [...userComment];
+    let temp = 0;
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = i + 1; j < arr.length; j++) {
+        if (
+          arr[i].snippet.topLevelComment.snippet.likeCount <
+          arr[j].snippet.topLevelComment.snippet.likeCount
+        ) {
+          temp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = temp;
+        }
+      }
+    }
+    setUserComment(arr);
+  }
+  function reset() {
+    axios
+      .get(
+        `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=25&videoId=${
+          clickData.id.videoId ? clickData.id.videoId : clickData.id
+        }&key=${process.env.REACT_APP_Y0UTUBE_API_KEY}`
+      )
+      .then((result) => {
+        setUserComment(() => result.data.items);
+      });
+  }
   return (
     <div
       className={`${styles.video}  ${
@@ -53,45 +82,34 @@ const Video = ({
         <div className={styles.introduce}>
           <img src={subClickData[1]}></img>
           <h1>{subClickData[2]}</h1>
-          <button
-            onClick={() => {
-              let arr = [...userComment];
-              let temp = 0;
-              console.log(
-                userComment[0].snippet.topLevelComment.snippet.likeCount
-              );
-              for (let i = 0; i < arr.length; i++) {
-                for (let j = i + 1; j < arr.length; j++) {
-                  if (
-                    arr[i].snippet.topLevelComment.snippet.likeCount <
-                    arr[j].snippet.topLevelComment.snippet.likeCount
-                  ) {
-                    temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
-                  }
-                }
-              }
-              setUserComment(arr);
-            }}
-          >
-            좋아요순
-          </button>
-          <button
-            onClick={() => {
-              axios
-                .get(
-                  `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=25&videoId=${
-                    clickData.id.videoId ? clickData.id.videoId : clickData.id
-                  }&key=${process.env.REACT_APP_Y0UTUBE_API_KEY}`
-                )
-                .then((result) => {
-                  setUserComment(() => result.data.items);
-                });
-            }}
-          >
-            원래대로
-          </button>
+          <div className={styles.sortBox}>
+            <button
+              className={styles.lookBox}
+              onClick={() => {
+                setSortButton(!sortButton);
+              }}
+            >
+              {sortButton ? "탭닫기" : "정렬하기"}
+            </button>
+            {sortButton ? (
+              <div className={styles.hideButton}>
+                <button
+                  onClick={() => {
+                    sortBtn();
+                  }}
+                >
+                  좋아요순
+                </button>
+                <button
+                  onClick={() => {
+                    reset();
+                  }}
+                >
+                  원래대로
+                </button>
+              </div>
+            ) : null}
+          </div>
         </div>
         <hr />
         <div>
