@@ -1,0 +1,43 @@
+.screen {
+  height: 100vh;
+  background-color: black;
+}
+.ClickCircle {
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  perspective: 50px;
+  transition: 1s all;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 20px 0 white, 10px 10px 20px 10px purple,
+    -10px -10px 20px 0 cyan, inset 0 0 14px 0 white,
+    inset -40px -30px 60px 0 purple, inset -40px -30px 70px 0 blue,
+    inset -40px -30px 100px 0 cyan, inset -40px -30px 140px 0 powderblue;
+  animation: glow 2s linear infinite alternate;
+}
+@keyframes glow {
+  from {
+    box-shadow:
+        /* 공 바깥쪽 그림자 */ 0 0 20px 0 white,
+      10px 10px 20px 10px purple, -10px -10px 20px 0 cyan,
+      /* 공 안쪽 그림자 */ inset 0 0 14px 0 white,
+      inset -40px -30px 60px 0 purple, inset -40px -30px 70px 0 blue,
+      inset -40px -30px 100px 0 cyan, inset -40px -30px 140px 0 powderblue;
+  }
+
+  to {
+    box-shadow:
+        /* 공 바깥쪽 그림자 */ 0 0 20px 0 white,
+      10px 10px 20px 10px brown, -10px -10px 20px 0 green,
+      /* 공 안쪽 그림자 */ inset 0 0 14px 0 white,
+      inset -40px -30px 60px 0 brown, inset -40px -30px 70px 0 blue,
+      inset -40px -30px 100px 0 green, inset -40px -30px 140px 0 powderblue;
+  }
+}

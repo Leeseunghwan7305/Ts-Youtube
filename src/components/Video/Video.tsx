@@ -82,6 +82,7 @@ const Video = ({
         <div className={styles.introduce}>
           <img src={subClickData[1]}></img>
           <h1>{subClickData[2]}</h1>
+          <button className={styles.subscribe}>구독하기</button>
           <div className={styles.sortBox}>
             <button
               className={styles.lookBox}

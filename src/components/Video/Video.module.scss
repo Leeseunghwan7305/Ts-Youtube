@@ -11,6 +11,15 @@
     }
     .introduce {
       position: relative;
+      .subscribe {
+        position: absolute;
+        top: 5px;
+        right: 15px;
+        padding: 15px 25px;
+        background-color: #c00;
+        border: none;
+        color: white;
+      }
       .sortBox {
         position: absolute;
         right: 15px;

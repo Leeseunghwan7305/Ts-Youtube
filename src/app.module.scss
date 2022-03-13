@@ -1,4 +1,15 @@
 .app {
   color: black;
   font-family: sans-serif;
+  .screen {
+    display: none;
+  }
+  .firstScreen {
+  }
+  .youtube {
+    display: none;
+  }
+  .youtubeScreen {
+    display: block;
+  }
 }

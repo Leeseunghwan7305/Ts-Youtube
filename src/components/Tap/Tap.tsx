@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import styles from "./Tap.module.scss";
 type Props = {
   tapToggle: boolean;
+  setScreenToggle: any;
+  screenToggle: boolean | null;
 };
-const Tap = ({ tapToggle }: Props) => {
+const Tap = ({ tapToggle, setScreenToggle, screenToggle }: Props) => {
   return (
     <div className={`${styles.tap} ${tapToggle ? null : styles.block}`}>
       <ul>
@@ -28,11 +30,14 @@ const Tap = ({ tapToggle }: Props) => {
         </li>
         <li>
           <Link
-            to="/explore"
+            to="/"
             style={{ textDecoration: "none" }}
             className={styles.link}
+            onClick={() => {
+              setScreenToggle(!screenToggle);
+            }}
           >
-            탐색
+            첫화면으로 가기
           </Link>
         </li>
         <li>
