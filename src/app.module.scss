@@ -11,5 +11,14 @@
   }
   .youtubeScreen {
     display: block;
+    animation: LookScreen 3.5s;
+  }
+}
+@keyframes LookScreen {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

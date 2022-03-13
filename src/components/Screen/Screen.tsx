@@ -13,7 +13,7 @@ const Screen = ({ screenToggle, setScreenToggle }: Props) => {
             setScreenToggle(!screenToggle);
           }}
         >
-          click
+          Click Me!
         </button>
       </div>
     </div>
