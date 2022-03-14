@@ -1,39 +1,6 @@
 .screen {
   height: 100vh;
   background-color: powderblue;
-  .box {
-    width: 300px;
-    height: 300px;
-    background-color: salmon;
-    transform: perspective(50px) rotateX(60deg);
-  }
-  .box2 {
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    background-color: chartreuse;
-    transform: perspective(50px) rotateX(60deg);
-  }
-  .box3 {
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    right: 50%;
-    top: 10%;
-    background-color: darkgoldenrod;
-    transform: perspective(50px) rotateX(60deg);
-  }
-  h1 {
-    font-size: 4em;
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    color: red;
-    perspective: 50px;
-    transform: translate(-50%, -50%);
-  }
 }
 .ClickCircle {
   width: 500px;
@@ -44,7 +11,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 50%;
+  top: 30%;
   left: 50%;
   perspective: 50px;
   transition: 1s all;
@@ -77,5 +44,75 @@ button {
       /* 공 안쪽 그림자 */ inset 0 0 14px 0 white,
       inset -40px -30px 60px 0 brown, inset -40px -30px 70px 0 blue,
       inset -40px -30px 100px 0 green, inset -40px -30px 140px 0 powderblue;
+  }
+}
+.scene {
+  width: 200px;
+  height: 200px;
+  perspective: 600px;
+  display: flex;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.scene .cube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: translateZ(-100px);
+  animation: rotation 5s infinite;
+}
+
+.cube .cube__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 2.5em;
+  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cube .cube__faceFront {
+  background: rgba(98, 206, 203, 0.7);
+  transform: rotateY(0deg) translateZ(500px);
+}
+
+.cube .cube__faceBack {
+  background: rgba(98, 155, 206, 0.7);
+  transform: rotateY(180deg) translateZ(500px);
+}
+
+.cube .cube__faceRight {
+  background: rgba(98, 101, 206, 0.7);
+  transform: rotateY(90deg) translateZ(500px);
+}
+
+.cube__faceLeft {
+  background: rgba(149, 98, 206, 0.7);
+  transform: rotateY(-90deg) translateZ(500px);
+}
+
+.cube__faceTop {
+  background: rgba(203, 98, 206, 0.7);
+  transform: rotateX(90deg) translateZ(500px);
+}
+
+.cube__faceBottom {
+  background: rgba(206, 98, 155, 0.7);
+  transform: rotateX(-90deg) translateZ(500px);
+}
+
+@keyframes rotation {
+  0% {
+    transform: translateZ(-100px) rotate3d(0, 0, 0);
+  }
+  100% {
+    transform: translateZ(-100px) rotate3d(1, 0, 1, 360deg);
   }
 }

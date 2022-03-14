@@ -7,10 +7,29 @@ type Props = {
 const Screen = ({ screenToggle, setScreenToggle }: Props) => {
   return (
     <div className={styles.screen}>
-      <div className={styles.box}></div>
-      <div className={styles.box2}></div>
-      <div className={styles.box3}></div>
-      <h1>Youtube에 오신걸 환영합니다</h1>
+      <div className={styles.scene}>
+        {" "}
+        <div className={styles.cube}>
+          <div className={`${styles.cube__face} ${styles.cube__faceFront}`}>
+            front
+          </div>
+          <div className={`${styles.cube__face} ${styles.cube__faceBack}`}>
+            back
+          </div>
+          <div className={`${styles.cube__face} ${styles.cube__faceRight}`}>
+            right
+          </div>
+          <div className={`${styles.cube__face} ${styles.cube__faceLeft}`}>
+            left
+          </div>
+          <div className={`${styles.cube__face} ${styles.cube__faceTop}`}>
+            top
+          </div>
+          <div className={`${styles.cube__face} ${styles.cube__faceBottom}`}>
+            bottom
+          </div>
+        </div>
+      </div>
       <div className={styles.ClickCircle}>
         <button
           onClick={() => {
