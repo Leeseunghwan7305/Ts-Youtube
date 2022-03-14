@@ -1,6 +1,39 @@
 .screen {
   height: 100vh;
-  background-color: black;
+  background-color: powderblue;
+  .box {
+    width: 300px;
+    height: 300px;
+    background-color: salmon;
+    transform: perspective(50px) rotateX(60deg);
+  }
+  .box2 {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: chartreuse;
+    transform: perspective(50px) rotateX(60deg);
+  }
+  .box3 {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    right: 50%;
+    top: 10%;
+    background-color: darkgoldenrod;
+    transform: perspective(50px) rotateX(60deg);
+  }
+  h1 {
+    font-size: 4em;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    color: red;
+    perspective: 50px;
+    transform: translate(-50%, -50%);
+  }
 }
 .ClickCircle {
   width: 500px;
@@ -20,6 +53,9 @@
     inset -40px -30px 60px 0 purple, inset -40px -30px 70px 0 blue,
     inset -40px -30px 100px 0 cyan, inset -40px -30px 140px 0 powderblue;
   animation: glow 2s linear infinite alternate;
+}
+button {
+  padding: 25px;
 }
 @keyframes glow {
   from {
