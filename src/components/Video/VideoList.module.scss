@@ -2,15 +2,18 @@
   display: flex;
   margin-bottom: 15px;
   margin-left: 15px;
+  transition: 1s all;
+  animation: img 0.5s linear 1 forwards;
   .img {
     width: 168px;
     height: 94px;
     margin-right: 10px;
+    border-radius: 15%;
+    &:hover {
+      transform: scale(1.05);
+    }
   }
   transition: 0.2s all;
-  &:hover {
-    transform: scale(1.05);
-  }
 }
 .SideBox {
   .channelImg {
@@ -33,5 +36,17 @@
   }
   .SideBoxLow {
     font-size: 12px;
+  }
+}
+.open-img {
+  transform: translateX(0px);
+}
+
+@keyframes img {
+  0% {
+    transform: translateX(400px);
+  }
+  100% {
+    transform: translateX(0px);
   }
 }

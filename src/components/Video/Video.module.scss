@@ -93,9 +93,13 @@
 }
 @media screen and (max-width: 1100px) {
   .side {
+  }
+  .userComments {
     display: none;
   }
   .video {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     width: 100%;
     margin: 0 auto;

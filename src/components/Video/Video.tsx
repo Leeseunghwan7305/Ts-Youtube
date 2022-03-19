@@ -113,7 +113,7 @@ const Video = ({
           </div>
         </div>
         <hr />
-        <div>
+        <div className={styles.userComments}>
           {userComment.map((item) => (
             <div className={styles.userComment}>
               <img

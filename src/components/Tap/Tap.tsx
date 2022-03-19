@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Tap.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 type Props = {
   tapToggle: boolean;
   setScreenToggle: any;

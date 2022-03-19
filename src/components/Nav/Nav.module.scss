@@ -24,6 +24,9 @@
     height: 24px;
     padding: 8px;
     cursor: pointer;
+    &:hover {
+      transform: scale(1.2);
+    }
   }
   .input {
     height: 50px;
@@ -42,12 +45,12 @@
     background-color: #f8f8f8;
     padding: 12px 15px;
     border: 1px solid black;
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 }
 @media screen and (max-width: 950px) {
-  .logo {
-    display: none;
-  }
   .icon {
     display: none;
   }
