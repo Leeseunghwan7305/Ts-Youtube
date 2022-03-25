@@ -5,6 +5,7 @@ import axios from "axios";
 import ProcessViewCount from "./ProcessViewCount";
 import "moment/locale/ko";
 import * as moment from "moment";
+import Loading from "../../loading";
 moment.locale("ko");
 const MainList = ({
   id,
@@ -15,6 +16,8 @@ const MainList = ({
   channelId,
   publishedAt,
   SetSubClickData,
+  loding,
+  setLoding,
 }: any) => {
   let navigate = useNavigate();
   let [viewCount, setViewCount] = useState("");

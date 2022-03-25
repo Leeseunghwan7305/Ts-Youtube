@@ -5,6 +5,7 @@ import axios from "axios";
 import ProcessViewCount from "../Main/ProcessViewCount";
 import "moment/locale/ko";
 import * as moment from "moment";
+import Loading from "../../loading";
 moment.locale("ko");
 const VideoList = ({
   id,
@@ -15,6 +16,8 @@ const VideoList = ({
   channelId,
   publishedAt,
   SetSubClickData,
+  setLoding,
+  loding,
 }: any) => {
   let navigate = useNavigate();
   let [viewCount, setViewCount] = useState("");

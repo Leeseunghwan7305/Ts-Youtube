@@ -6,6 +6,7 @@ import React, {
   SetStateAction,
 } from "react";
 import { Route, Routes } from "react-router";
+import Loading from "./loading";
 import "./App.css";
 import styles from "./app.module.scss";
 import Layout from "./components/Layout/Layout";
@@ -18,6 +19,7 @@ function App() {
   let [data, setData] = useState<any[]>([]);
   let [tapToggle, setTapToggle] = useState<boolean>(true);
   let [screenToggle, setScreenToggle] = useState<boolean | null>(false);
+  let [loding, setLoding] = useState(true);
   function Toggle(): void {
     setTapToggle(!tapToggle);
   }
@@ -55,6 +57,8 @@ function App() {
                   data={data}
                   setData={setData}
                   SetSubClickData={SetSubClickData}
+                  loding={loding}
+                  setLoding={setLoding}
                 ></Main>
               }
             ></Route>
@@ -69,6 +73,8 @@ function App() {
                   tapToggle={tapToggle}
                   SetSubClickData={SetSubClickData}
                   subClickData={subClickData}
+                  loding={loding}
+                  setLoding={setLoding}
                 ></Video>
               }
             ></Route>

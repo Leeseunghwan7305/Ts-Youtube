@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styles from "./Video.module.scss";
 import VideoList from "./VideoList";
+import Loading from "../../loading";
 type Props = {
   clickData: any | undefined;
   data: any[];
@@ -9,6 +10,8 @@ type Props = {
   tapToggle: boolean;
   SetSubClickData: any;
   subClickData: any;
+  loding: any;
+  setLoding: any;
 };
 const Video = ({
   clickData,
@@ -17,6 +20,8 @@ const Video = ({
   tapToggle,
   SetSubClickData,
   subClickData,
+  loding,
+  setLoding,
 }: Props) => {
   let [userComment, setUserComment] = useState<any[]>([]);
   let [sortButton, setSortButton] = useState(false);
@@ -132,6 +137,8 @@ const Video = ({
         {data.map((result) => {
           return (
             <VideoList
+              loding={loding}
+              setLoding={setLoding}
               id={result.id.videoId ? result.id.videoId : result.id}
               thumbnail={result.snippet.thumbnails.medium.url}
               title={result.snippet.title}
