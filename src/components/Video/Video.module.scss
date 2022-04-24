@@ -12,6 +12,10 @@
     }
     .introduce {
       position: relative;
+      h1 {
+        display: flex;
+        align-items: center;
+      }
       .subscribe {
         position: absolute;
         top: 5px;
@@ -57,11 +61,14 @@
   .userComment {
     display: flex;
     margin: 20px;
+    border-bottom: 1px solid black;
     img {
+      justify-content: center;
       height: 50px;
       width: 50px;
       border-radius: 50%;
       margin-right: 20px;
+      margin-top: 20px;
     }
     .userChat {
       p {
@@ -92,6 +99,14 @@
 .margin {
   margin-left: 200px;
 }
+.userContent {
+  p:nth-child(1) {
+    font-size: 20px;
+  }
+  p:nth-child(2) {
+    font-size: 20px;
+  }
+}
 @media screen and (max-width: 1100px) {
   .side {
   }
@@ -107,6 +122,15 @@
     iframe {
       height: 400px;
       margin-left: 16px;
+    }
+  }
+  .videoImg {
+    .introduce {
+      h1 {
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+      }
     }
   }
 }

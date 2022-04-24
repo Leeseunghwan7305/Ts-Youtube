@@ -10,28 +10,27 @@ const Screen = ({ screenToggle, setScreenToggle }: Props) => {
       <div className={styles.scene}>
         {" "}
         <div className={styles.cube}>
-          <div className={`${styles.cube__face} ${styles.cube__faceFront}`}>
-            front
-          </div>
-          <div className={`${styles.cube__face} ${styles.cube__faceBack}`}>
-            back
-          </div>
-          <div className={`${styles.cube__face} ${styles.cube__faceRight}`}>
-            right
-          </div>
-          <div className={`${styles.cube__face} ${styles.cube__faceLeft}`}>
-            left
-          </div>
-          <div className={`${styles.cube__face} ${styles.cube__faceTop}`}>
-            top
-          </div>
-          <div className={`${styles.cube__face} ${styles.cube__faceBottom}`}>
-            bottom
-          </div>
+          <div
+            className={`${styles.cube__face} ${styles.cube__faceFront}`}
+          ></div>
+          <div
+            className={`${styles.cube__face} ${styles.cube__faceBack}`}
+          ></div>
+          <div
+            className={`${styles.cube__face} ${styles.cube__faceRight}`}
+          ></div>
+          <div
+            className={`${styles.cube__face} ${styles.cube__faceLeft}`}
+          ></div>
+          <div className={`${styles.cube__face} ${styles.cube__faceTop}`}></div>
+          <div
+            className={`${styles.cube__face} ${styles.cube__faceBottom}`}
+          ></div>
         </div>
       </div>
       <div className={styles.ClickCircle}>
         <button
+          className={styles.button}
           onClick={() => {
             setScreenToggle(!screenToggle);
           }}

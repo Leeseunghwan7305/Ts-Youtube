@@ -124,10 +124,10 @@ const Video = ({
               <img
                 src={item.snippet.topLevelComment.snippet.authorProfileImageUrl}
               />
-              <div>
-                <p>{item.snippet.topLevelComment.snippet.authorDisplayname}</p>
+              <div className={styles.userContent}>
+                <p>{item.snippet.topLevelComment.snippet.authorDisplayName}</p>
                 <p>{item.snippet.topLevelComment.snippet.textOriginal}</p>
-                <p>{item.snippet.topLevelComment.snippet.likeCount}</p>
+                <p>추천수:{item.snippet.topLevelComment.snippet.likeCount}</p>
               </div>
             </div>
           ))}
