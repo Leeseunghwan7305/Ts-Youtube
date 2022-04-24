@@ -1,0 +1,60 @@
+.head {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 56px;
+  padding: 0 16px;
+  background-color: white;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  z-index: 5;
+  transition: all 1s;
+
+  .img {
+    background-image: url("https://drive.google.com/file/d/1a6CX6A_wKPmCrA1IA7ja7g93qauCYuaj/view");
+  }
+  .tab {
+    display: flex;
+    align-items: center;
+  }
+  .icon {
+    width: 24px;
+    height: 24px;
+    padding: 8px;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+  .input {
+    height: 50px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    flex-grow: 1;
+    padding: 15px;
+  }
+  .centerTap {
+    display: flex;
+    align-items: center;
+    flex: 0 1 640px;
+    padding: 0 16px;
+  }
+  .icons {
+    background-color: #f8f8f8;
+    padding: 12px 15px;
+    border: 1px solid black;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+@media screen and (max-width: 950px) {
+  .icon {
+    display: none;
+  }
+  .icons {
+    display: block;
+  }
+}

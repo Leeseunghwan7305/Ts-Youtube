@@ -1,0 +1,32 @@
+.app {
+  color: black;
+  font-family: sans-serif;
+  .screen {
+    display: none;
+  }
+  .firstScreen {
+  }
+  .youtube {
+    display: none;
+  }
+  .youtubeScreen {
+    display: block;
+    animation: LookScreen 0.5s;
+  }
+}
+@keyframes LookScreen {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes outScreen {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

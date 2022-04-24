@@ -1,0 +1,121 @@
+.video {
+  display: flex;
+  flex: 1;
+  max-width: 1500px;
+
+  .videoImg {
+    width: 95%;
+    h2,
+    h3,
+    span {
+      margin: 15px;
+    }
+    .introduce {
+      position: relative;
+      .subscribe {
+        position: absolute;
+        top: 5px;
+        right: 15px;
+        padding: 15px 25px;
+        background-color: #c00;
+        border: none;
+        color: white;
+      }
+      .sortBox {
+        position: absolute;
+        right: 15px;
+        bottom: 10px;
+        .lookBox {
+          padding: 15px 21px;
+          position: relative;
+        }
+        .hideButton {
+          button {
+            padding: 5px 13px;
+          }
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          width: 87px;
+          top: 53px;
+        }
+      }
+    }
+  }
+  iframe {
+    cursor: pointer;
+  }
+  pre {
+    margin-bottom: 50px;
+  }
+  .introduce {
+    display: flex;
+    img {
+      margin: 20px;
+    }
+  }
+  .userComment {
+    display: flex;
+    margin: 20px;
+    img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+    .userChat {
+      p {
+        margin: 0;
+      }
+    }
+  }
+}
+.sideImg {
+  display: flex;
+  cursor: pointer;
+  transition: 0.2s all;
+  img {
+    margin-right: 5px;
+  }
+  p:first-child {
+    font-weight: 600;
+  }
+  margin: 5px 0;
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+.center {
+  display: flex;
+  justify-content: center;
+}
+.margin {
+  margin-left: 200px;
+}
+@media screen and (max-width: 1100px) {
+  .side {
+  }
+  .userComments {
+    display: none;
+  }
+  .video {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    iframe {
+      height: 400px;
+      margin-left: 16px;
+    }
+  }
+}
+@media screen and (min-width: 1100px) {
+  .video {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .margin {
+    margin-left: 200px;
+  }
+}
